@@ -1,0 +1,6 @@
+hardstatus alwayslastline "%Lw"
+
+# Red Hat's normal status line
+#hardstatus string "[screen %n%?: %t%?] %h"
+hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %m-%d %{W}%c %{g}]'
+
