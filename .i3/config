@@ -28,17 +28,14 @@ floating_modifier $mod
 
 # start a terminal
 # bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Return exec terminator
+bindsym $mod+Return exec urxvt
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-bindsym $mod+Shift+d exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+Shift+d exec dmenu_run
 
 # change focus
 bindsym $mod+j focus left
@@ -120,9 +117,9 @@ mode "$mode_system" {
     bindsym l exec --no-startup-id i3lock -c 000000 -d, mode "default"
     bindsym e exec --no-startup-id i3-msg exit, mode "default"
     # bindsym s exec --no-startup-id i3exit suspend, mode "default"
-    bindsym h exec --no-startup-id sudo pm-hibernate, mode "default"
-    bindsym r exec --no-startup-id shutdown -r now, mode "default"
-    bindsym Shift+s exec --no-startup-id shutdown -h now, mode "default"
+    #bindsym h exec --no-startup-id sudo pm-hibernate, mode "default"
+    bindsym r exec --no-startup-id reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id poweroff, mode "default"
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"
@@ -163,7 +160,7 @@ mode "resize" {
 
 # bindsym $mod+r mode "resize"
 
-bindsym $mod+c exec google-chrome
+bindsym $mod+c exec chrome
 # bindsym $mod+i workspace 5; exec google-chrome --app="https://biuro.heuthes/" --incognito --enable-show-modal-dialog
 bindsym $mod+i workspace 5; exec firefox -P default "https://biuro.heuthes/"
 bindsym $mod+n exec nemo --no-desktop
@@ -204,7 +201,7 @@ bar {
         # position top
         # mode hide
         modifier $mod
-        tray_output primary
+        #tray_output primary
 
         # colors {
         #         background #2d2d2d
@@ -241,9 +238,9 @@ for_window [class="Terminator" instance="scratchpad"] move scratchpad
 #Start-up apps
 exec --no-startup-id xsetroot -solid "#000000"
 exec --no-startup-id pactl set-sink-volume 0 '20%'
-exec --no-startup-id /usr/bin/parcellite
+exec --no-startup-id /usr/local/bin/parcellite
 #exec --no-startup-id /usr/bin/nm-applet
-exec --no-startup-id /usr/bin/dropbox start
+#exec --no-startup-id /usr/bin/dropbox start
 exec --no-startup-id dunst
 exec --no-startup-id terminator -c scratchpad -p scratch -T "terminator"
 exec --no-startup-id xautolock -time 10 -locker "~/bin/lock_screen.sh" &
