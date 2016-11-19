@@ -5,17 +5,18 @@ function col {
 function pa {
 	case $1 in
 		search)
-			apt-cache search $2
+			# apt-cache search $2
+			yaourt -Ss $2
 			;;
-		show)
-			apt-cache show $2
+		show|info)
+			yaourt -Si $2
 			;;
 		ins|install)
-			shift && sudo apt-get install --no-install-recommends $*
+			shift && yaourt -S $*
 			;;
 		up)
-			sudo apt-get update
-			sudo apt-get dist-upgrade
+			sudo pacman -Syu
+			yaourt -Sau
 			;;
 		*)
 			echo "ERR: Usage: pa search | show | ins | up"
@@ -23,16 +24,16 @@ function pa {
 	esac
 }
 
-export EDITOR=vim
-
-export TODOTXT_DEFAULT_ACTION=ls
-alias t="todo.sh"
-source ~/src/git/todo.txt-cli/todo_completion
-complete -F _todo t
-
-export HISTTIMEFORMAT="%F %T "
-
-#LP_ENABLE_TIME=1
-#LP_TIME_ANALOG=1
-[[ $- = *i* ]] && source ~/src/git/liquidprompt/liquidprompt
+#export EDITOR=vim
+#
+#export TODOTXT_DEFAULT_ACTION=ls
+#alias t="todo.sh"
+#source ~/src/git/todo.txt-cli/todo_completion
+#complete -F _todo t
+#
+#export HISTTIMEFORMAT="%F %T "
+#
+##LP_ENABLE_TIME=1
+##LP_TIME_ANALOG=1
+#[[ $- = *i* ]] && source ~/src/git/liquidprompt/liquidprompt
 
