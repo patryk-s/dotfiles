@@ -1,3 +1,23 @@
+URxvt*termName: xterm-256color
+URxvt*font: xft:SourceCodePro:size=11
+
+URxvt*letterSpace: -1
+
+! do not scroll with output
+URxvt*scrollTtyOutput: false
+
+! scroll in relation to buffer (with mouse scroll or Shift+Page Up)
+URxvt*scrollWithBuffer: true
+
+! scroll back to the bottom on keypress
+URxvt*scrollTtyKeypress: true
+
+URxvt*scrollBar: false
+URxvt*saveLines: 5000
+
+URxvt*secondaryScreen: 1
+URxvt*secondaryScroll: 0
+
 ! Solarized color scheme for the X Window System
 !
 ! http://ethanschoonover.com/solarized
