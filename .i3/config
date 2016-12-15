@@ -257,5 +257,6 @@ exec --no-startup-id dunst
 exec --no-startup-id terminator -c scratchpad -p scratch -T "terminator"
 exec --no-startup-id xbacklight -set 20
 exec --no-startup-id setxkbmap -layout pl
+exec --no-startup-id xflux -l 53.25 -g 14.32 -k 3500
 exec --no-startup-id xautolock -time 10 -locker "~/bin/lock_screen.sh" &
 
