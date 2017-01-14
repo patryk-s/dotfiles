@@ -6,23 +6,24 @@ function pa {
 	case $1 in
 		search)
 			# apt-cache search $2
-			yaourt -Ss $2
+			pacaur -Ss $2
 			;;
 		show|info)
-			yaourt -Si $2
+			pacaur -Si $2
 			;;
 		ins|install)
-			shift && yaourt -S $*
+			shift && pacaur -S $*
 			;;
 		up)
-			sudo pacman -Syu
-			yaourt -Sau
+			pacaur -Syu
 			;;
 		*)
 			echo "ERR: Usage: pa search | show | ins | up"
 			;;
 	esac
 }
+
+alias grep="grep --color"
 
 #export EDITOR=vim
 #
@@ -31,9 +32,12 @@ function pa {
 #source ~/src/git/todo.txt-cli/todo_completion
 #complete -F _todo t
 #
-#export HISTTIMEFORMAT="%F %T "
+export HISTTIMEFORMAT="%F %T "
 #
+LPPATH=/usr/bin/liquidprompt
 ##LP_ENABLE_TIME=1
 ##LP_TIME_ANALOG=1
-#[[ $- = *i* ]] && source ~/src/git/liquidprompt/liquidprompt
+if [ -r ${LPPATH} ];then
+	[[ $- = *i* ]] && source ${LPPATH}
+fi
 
