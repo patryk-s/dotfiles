@@ -31,20 +31,18 @@ floating_modifier $mod
 # bindsym $mod+Return exec i3-sensible-terminal
 # bindsym $mod+Return exec terminator
 # bindsym $mod+Return exec xfce4-terminal
-bindsym $mod+Shift+Return exec termite -c ~/.config/termite/config-dark
 bindsym $mod+Return exec termite
+bindsym $mod+Shift+Return exec termite -c ~/.config/termite/config-light
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-#bindsym $mod+Shift+d exec dmenu_run
-bindsym $mod+Shift+d exec --no-startup-id rofi -location 1 -show run
+bindsym $mod+Shift+d exec dmenu_run
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
-#bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
-bindsym $mod+d exec --no-startup-id rofi -location 1 -show drun
+bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
 bindsym $mod+j focus left
@@ -80,7 +78,7 @@ bindsym $mod+v split v
 bindsym $mod+f fullscreen
 
 # change container layout (stacked, tabbed, toggle split)
-# bindsym $mod+s layout stacking
+bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
@@ -189,7 +187,7 @@ bindsym $mod+p workspace 1; exec mattermost-desktop ; exec pidgin
 bindsym $mod+Shift+f exec firefox
 bindsym $mod+Shift+v exec VirtualBox
 bindsym --release Print exec scrot '/home/ps/Pictures/Screenshot-%Y-%m-%d_%H:%M:%S.png'
-bindsym --release $mod+s exec scrot -s '/home/ps/Pictures/Screenshot-%Y-%m-%d_%H:%M:%S.png'
+bindsym --release Mod1+Print exec scrot -s '/home/ps/Pictures/Screenshot-%Y-%m-%d_%H:%M:%S.png'
 
 bindsym $mod+Tab workspace back_and_forth
 
@@ -205,11 +203,11 @@ bindsym $mod+minus scratchpad show
 
 # Control volume
 # bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 -- +10% && killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set Master 10%+ && pkill -RTMIN+10 i3blocks
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set Master 10%+ && killall -s USR1 i3status
 # bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -- -10% && killall -SIGUSR1 i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id amixer set Master 10%- && pkill -RTMIN+10 i3blocks
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer set Master 10%- && killall -s USR1 i3status
 # bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle && killall -SIGUSR1 i3status
-bindsym XF86AudioMute exec --no-startup-id amixer set Master toggle && pkill -RTMIN+10 i3blocks
+bindsym XF86AudioMute exec --no-startup-id amixer set Master toggle && killall -s USR1 i3status
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 2
 bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 2
 bindsym XF86Calculator exec --no-startup-id gnome-calculator
@@ -217,7 +215,7 @@ bindsym XF86Calculator exec --no-startup-id gnome-calculator
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3blocks
+        status_command i3status
         # position top
         # mode hide
         modifier $mod
@@ -254,11 +252,11 @@ for_window [class="VirtualBox"] layout tabbed
 
 for_window [class="Terminator" instance="scratchpad"] move scratchpad
 for_window [class="Xfce4-terminal" title="scratchpad"] move scratchpad
-for_window [class="Termite" title="scratchpad"] move scratchpad
+for_window [class="termite" title="scratchpad"] move scratchpad
 for_window [class="Pidgin" window_role="buddy_list"] floating enable
 assign [class="Pidgin" window_role="conversation"] 1
 for_window [class="Pidgin" window_role="conversation"] resize shrink width 25 px or 25 ppt
-for_window [class="TelegramDesktop" title="Telegram"] resize shrink width 25 px or 25 ppt
+for_window [class="telegram-desktop" title="Telegram"] resize shrink width 25 px or 25 ppt
 for_window [title="Pianoteq STAGE v5.8.1 Options"] floating enable
 
 #Start-up apps
@@ -270,7 +268,7 @@ exec --no-startup-id /usr/bin/dropbox start
 exec --no-startup-id dunst
 # exec --no-startup-id /usr/lib/notify-osd/notify-osd
 #exec --no-startup-id xfce4-terminal --geometry=150x35 --startup-id=scratchpad --title=scratchpad
-exec --no-startup-id termite --title=scratchpad
+exec --no-startup-id termite --geometry=150x35 --title=scratchpad
 exec --no-startup-id xbacklight -set 20
 exec --no-startup-id setxkbmap -layout pl
 exec --no-startup-id xflux -l 53.25 -g 14.32 -k 3500

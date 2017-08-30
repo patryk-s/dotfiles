@@ -1,4 +1,4 @@
-URxvt*termName: xterm-256color
+URxvt*termName: xterm
 URxvt*font: xft:SourceCodePro:size=11
 
 URxvt*letterSpace: -1

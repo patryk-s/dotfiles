@@ -14,3 +14,11 @@ export VISUAL=vim
 eval $(dircolors $HOME/.dircolors)
 # export TERM=xterm-256color
 export TERM=xterm
+
+export QT_QPA_PLATFORMTHEME="qt5ct"
+
+export GOPATH=$HOME/gocode
+if [ -d ${GOPATH}/bin ];then
+	export PATH=$PATH:$GOPATH/bin
+fi
+

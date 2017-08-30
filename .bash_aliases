@@ -12,10 +12,10 @@ function pa {
 			pacaur -Si $2
 			;;
 		ins|install)
-			shift && pacaur -S $*
+			shift && pacaur -S "$*"
 			;;
 		up)
-			pacaur -Syu
+			shift && pacaur -Syu "$*"
 			;;
 		*)
 			echo "ERR: Usage: pa search | show | ins | up"
@@ -24,6 +24,7 @@ function pa {
 }
 
 alias grep="grep --color"
+alias view="vim -R"
 
 #export EDITOR=vim
 #
@@ -33,11 +34,28 @@ alias grep="grep --color"
 #complete -F _todo t
 #
 export HISTTIMEFORMAT="%F %T "
+export HISTSIZE=5000
 #
 LPPATH=/usr/bin/liquidprompt
-##LP_ENABLE_TIME=1
-##LP_TIME_ANALOG=1
+# LPPATH=/home/ps/git/liquidprompt/liquidprompt
 if [ -r ${LPPATH} ];then
 	[[ $- = *i* ]] && source ${LPPATH}
+else
+	echo "Install liquidprompt"
 fi
+
+UNDISTRACT=/usr/share/undistract-me/long-running.bash
+if [ -r ${UNDISTRACT} ];then
+	[[ $- = *i* ]] && source ${UNDISTRACT} && notify_when_long_running_commands_finish_install
+else
+	echo "Install undistract-me"
+fi
+
+BASHMARKS=/usr/share/bashmarks/bashmarks.sh
+if [ -r ${BASHMARKS} ];then
+	[[ $- = *i* ]] && source ${BASHMARKS}
+else
+	echo "Install bashmarks"
+fi
+
 
