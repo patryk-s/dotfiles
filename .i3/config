@@ -185,7 +185,7 @@ bindsym $mod+i workspace 5; exec google-chrome-stable "https://ops.rtrsupport.de
 # bindsym $mod+i workspace 5; exec firefox -P default "https://biuro.heuthes/"
 bindsym $mod+m exec thunderbird
 bindsym $mod+n exec nautilus
-bindsym $mod+p workspace 1; exec mattermost-desktop ; exec pidgin
+bindsym $mod+p workspace 1; exec mattermost-desktop
 bindsym $mod+Shift+f exec firefox
 bindsym $mod+Shift+v exec VirtualBox
 bindsym --release Print exec scrot '/home/ps/Pictures/Screenshot-%Y-%m-%d_%H:%M:%S.png'
@@ -275,5 +275,6 @@ exec --no-startup-id xbacklight -set 20
 exec --no-startup-id setxkbmap -layout pl
 exec --no-startup-id xmodmap ~/.Xmodmap
 exec --no-startup-id xflux -l 53.25 -g 14.32 -k 3500
+exec --no-startup-id xinput set-prop 11 294 {0, 0, 0, 0, 1, 3, 2}
 exec --no-startup-id xautolock -time 10 -locker "~/bin/lock_screen.sh" &
 
