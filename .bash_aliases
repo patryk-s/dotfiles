@@ -29,6 +29,11 @@ alias pull="git pull"
 alias pullr="git pull --rebase"
 alias push="git push"
 
+alias bat="/usr/bin/bat --theme 'Monokai Extended Light' --paging never --style 'plain'"
+# alias bat="/usr/bin/bat --theme 'TwoDark' --paging never --style 'plain'"
+alias batc="/usr/bin/bat --theme 'Monokai Extended Light' --paging never --style 'numbers,changes'"
+alias batd="/usr/bin/bat --paging never --style 'plain'"
+
 #export EDITOR=vim
 #
 #export TODOTXT_DEFAULT_ACTION=ls
