@@ -26,6 +26,7 @@ function pa {
 alias grep="grep --color"
 alias view="vim -R"
 alias pull="git pull"
+alias pullf="git fetch -p && git pull"
 alias pullr="git pull --rebase"
 alias push="git push"
 
