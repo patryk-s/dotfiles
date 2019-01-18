@@ -30,10 +30,12 @@ alias pullf="git fetch -p && git pull"
 alias pullr="git pull --rebase"
 alias push="git push"
 
-alias bat="/usr/bin/bat --theme 'Monokai Extended Light' --paging never --style 'plain'"
+alias batl="/usr/bin/bat --theme 'Monokai Extended Light' --paging never --style 'plain'"
 # alias bat="/usr/bin/bat --theme 'TwoDark' --paging never --style 'plain'"
 alias batc="/usr/bin/bat --theme 'Monokai Extended Light' --paging never --style 'numbers,changes'"
-alias batd="/usr/bin/bat --paging never --style 'plain'"
+alias bat="/usr/bin/bat --paging never --style 'plain'"
+alias batj="bat -l json"
+alias baty="bat -l yaml"
 
 #export EDITOR=vim
 #
