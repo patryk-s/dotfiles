@@ -20,3 +20,10 @@ if [ -d ${GOPATH}/bin ];then
 	export PATH=$PATH:$GOPATH/bin
 fi
 
+if [ -d ${HOME}/.krew/bin ];then
+	export PATH=${PATH}:$HOME/.krew/bin
+fi
+
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
+
+# eval "$(pyenv init -)"

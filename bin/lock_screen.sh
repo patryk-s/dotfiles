@@ -14,6 +14,7 @@ mogrify -scale 10% -scale 1000% ${SCREENSHOT}
 DIM=$(xbacklight)
 killall -SIGUSR1 dunst # pause
 xbacklight -set 1
-i3lock --nofork -i ${SCREENSHOT}
+i3lock -t --nofork -i ${SCREENSHOT}
 xbacklight -set ${DIM}
 killall -SIGUSR2 dunst # resume
+rm ${SCREENSHOT}
